@@ -1,0 +1,48 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/maddlaajkhan.jpg' %}" class="img-fluid">
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h1 id="hometext" class="font-weight-bold">Hey its me MADDLAAJ! Yeah trust me that's not a fake smile...  😊</h1>
+  </div>
+</div>
+<div class="jumbotron">
+  <h1> Professional Summary </summary></h1>
+  <p>• A Computer Engineer in the making, currently in my final year finishing my Bachelor of Engineering at NED University of Engineering and Technology.</p>
+  <p>• I had an opportunity to intern at ‘National Centre for Cyber Security NEDUET’ as a Web Developer and currently working as a Part-time Developer at BroncosTech stationed Saskatchewan, Canada.</p>
+  <p>• I am passionate about Computer Network and Security and aim to enhance my skills and attain opportunities in the field. This will allow me to enhance my skill set as I currently excel in Web Development.</p>
+  <p>•	I am seeking opportunities that shall allow me to grow in my relevant path and work towards my career goals.</p>
+
+</div>
+<h2 class="mt-5">Work in Progress !</h2>
+<hr>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
